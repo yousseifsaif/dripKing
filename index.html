@@ -28,8 +28,15 @@
         
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
         }
         
         .badge {
@@ -76,8 +83,8 @@
         <img src="https://i.ibb.co/1GfRFfwW/Logo.png" alt="Fashion Banner" class="absolute w-full h-full object-cover">
 
         <div class="container mx-auto relative z-10 text-center px-4">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Premium Streetwear Collection</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-400">Discover our exclusive fashion pieces</p>
+            <!-- <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Premium Streetwear Collection</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-400">Discover our exclusive fashion pieces</p> -->
             <a href="#products" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium inline-flex items-center border border-gray-800">
                 Shop Now <i class="fas fa-arrow-right ml-2"></i>
             </a>
@@ -92,15 +99,15 @@
             <div class="product-grid">
                 <!-- Product 1 -->
                 <div class="product-card rounded-lg overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
+                    <div class="relative overflow-hidden h-48">
                         <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1459&q=80" alt="Graphic T-Shirt" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                        <div class="absolute top-4 left-4 bg-gray-900 text-white px-3 py-1 rounded-full text-sm border border-gray-700">New</div>
+                        <div class="absolute top-2 left-2 bg-gray-900 text-white px-2 py-1 rounded-full text-xs border border-gray-700">New</div>
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2 text-white">Graphic Print T-Shirt</h3>
+                    <div class="p-3">
+                        <h3 class="text-lg font-semibold mb-1 text-white">Graphic T-Shirt</h3>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-300 font-bold">$29.99</span>
-                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                            <span class="text-gray-300 font-bold text-sm">$29.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-3 py-1 rounded-full transition border border-gray-800 text-sm">
                                 <i class="fas fa-shopping-cart"></i>
                             </button>
                         </div>
@@ -109,15 +116,15 @@
 
                 <!-- Product 2 -->
                 <div class="product-card rounded-lg overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
+                    <div class="relative overflow-hidden h-48">
                         <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" alt="Denim Jacket" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                        <div class="absolute top-4 left-4 bg-gray-900 text-white px-3 py-1 rounded-full text-sm border border-gray-700">Sale</div>
+                        <div class="absolute top-2 left-2 bg-gray-900 text-white px-2 py-1 rounded-full text-xs border border-gray-700">Sale</div>
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2 text-white">Vintage Denim Jacket</h3>
+                    <div class="p-3">
+                        <h3 class="text-lg font-semibold mb-1 text-white">Denim Jacket</h3>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-300 font-bold">$59.99</span>
-                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                            <span class="text-gray-300 font-bold text-sm">$59.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-3 py-1 rounded-full transition border border-gray-800 text-sm">
                                 <i class="fas fa-shopping-cart"></i>
                             </button>
                         </div>
@@ -126,14 +133,14 @@
 
                 <!-- Product 3 -->
                 <div class="product-card rounded-lg overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
+                    <div class="relative overflow-hidden h-48">
                         <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Cargo Pants" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2 text-white">Urban Cargo Pants</h3>
+                    <div class="p-3">
+                        <h3 class="text-lg font-semibold mb-1 text-white">Cargo Pants</h3>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-300 font-bold">$49.99</span>
-                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                            <span class="text-gray-300 font-bold text-sm">$49.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-3 py-1 rounded-full transition border border-gray-800 text-sm">
                                 <i class="fas fa-shopping-cart"></i>
                             </button>
                         </div>
@@ -142,14 +149,14 @@
 
                 <!-- Product 4 -->
                 <div class="product-card rounded-lg overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
+                    <div class="relative overflow-hidden h-48">
                         <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80" alt="Hoodie" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2 text-white">Oversized Hoodie</h3>
+                    <div class="p-3">
+                        <h3 class="text-lg font-semibold mb-1 text-white">Oversized Hoodie</h3>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-300 font-bold">$39.99</span>
-                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                            <span class="text-gray-300 font-bold text-sm">$39.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-3 py-1 rounded-full transition border border-gray-800 text-sm">
                                 <i class="fas fa-shopping-cart"></i>
                             </button>
                         </div>
@@ -158,15 +165,15 @@
 
                 <!-- Product 5 -->
                 <div class="product-card rounded-lg overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
+                    <div class="relative overflow-hidden h-48">
                         <img src="https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sneakers" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                        <div class="absolute top-4 left-4 bg-gray-900 text-white px-3 py-1 rounded-full text-sm border border-gray-700">Popular</div>
+                        <div class="absolute top-2 left-2 bg-gray-900 text-white px-2 py-1 rounded-full text-xs border border-gray-700">Popular</div>
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2 text-white">High-Top Sneakers</h3>
+                    <div class="p-3">
+                        <h3 class="text-lg font-semibold mb-1 text-white">High-Top Sneakers</h3>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-300 font-bold">$89.99</span>
-                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                            <span class="text-gray-300 font-bold text-sm">$89.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-3 py-1 rounded-full transition border border-gray-800 text-sm">
                                 <i class="fas fa-shopping-cart"></i>
                             </button>
                         </div>
@@ -175,14 +182,14 @@
 
                 <!-- Product 6 -->
                 <div class="product-card rounded-lg overflow-hidden">
-                    <div class="relative overflow-hidden h-64">
+                    <div class="relative overflow-hidden h-48">
                         <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Cap" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2 text-white">Logo Baseball Cap</h3>
+                    <div class="p-3">
+                        <h3 class="text-lg font-semibold mb-1 text-white">Baseball Cap</h3>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-300 font-bold">$24.99</span>
-                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                            <span class="text-gray-300 font-bold text-sm">$24.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-3 py-1 rounded-full transition border border-gray-800 text-sm">
                                 <i class="fas fa-shopping-cart"></i>
                             </button>
                         </div>
@@ -223,8 +230,6 @@
                     <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#1877F2] hover:text-white transition">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-
-                    <!-- Instagram Link -->
                     <a href="https://www.instagram.com/dripking.eggy/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-gradient-to-tr hover:from-[#833AB4] hover:via-[#C13584] hover:to-[#E1306C] hover:text-white transition">
                         <i class="fab fa-instagram"></i>
                     </a>
