@@ -60,8 +60,20 @@
     <!-- Navbar -->
     <nav class="bg-black py-4 px-6 sticky top-0 z-50 shadow-lg border-b border-gray-900">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold text-white">DRIP KING</div>
+            <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+            <style>
+                .rotunda-style {
+                    font-family: 'MedievalSharp', cursive;
+                    font-size: 2.3rem;
+                    color: #e5e5e5;
+                    letter-spacing: 0.5px;
+                    text-transform: uppercase;
+                }
+            </style>
 
+            <div class="rotunda-style flex items-center">
+                DRIP KING<span class="text-yellow-400 ml-2 text-3xl">👑</span>
+            </div>
             <div class="hidden md:flex space-x-6">
                 <a href="#" class="hover:text-gray-400 transition">Home</a>
                 <a href="#products" class="hover:text-gray-400 transition">Products</a>
@@ -79,13 +91,12 @@
 
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center">
-        <div class="absolute inset-0 bg-black opacity-80"></div>
-        <img src="https://i.ibb.co/1GfRFfwW/Logo.png" alt="Fashion Banner" class="absolute w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black opacity-70"></div>
+        <img src="https://i.ibb.co/1GfRFfwW/Logo.png" alt="Drip King Banner" class="absolute w-full h-full object-cover object-center">
 
         <div class="container mx-auto relative z-10 text-center px-4">
-            <!-- <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Premium Streetwear Collection</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-400">Discover our exclusive fashion pieces</p> -->
-            <a href="#products" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium inline-flex items-center border border-gray-800">
+            <a href="#products" class="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-full font-medium inline-flex items-center border border-gray-700 transition-all duration-300
+                      text-sm md:text-base md:px-8 md:py-3">
                 Shop Now <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </div>
