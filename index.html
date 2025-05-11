@@ -2,323 +2,251 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fashion Store</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRIP KING - Premium Fashion</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #000000;
-            scroll-behavior: smooth;
+            color: #e5e5e5;
         }
         
-        .fade-in {
-            display: none;
-        }
-        /* Custom Scrollbar */
-        
-         ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-         ::-webkit-scrollbar-track {
-            background: #111111;
-        }
-        
-         ::-webkit-scrollbar-thumb {
-            background: #333333;
-            border-radius: 4px;
-        }
-        /* Active Section Indicator */
-        
-        .nav-indicator {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 100;
-        }
-        
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #222222;
-            border: 2px solid #444444;
-            cursor: pointer;
+        .product-card {
             transition: all 0.3s ease;
+            background-color: #111111;
+            border: 1px solid #222222;
         }
         
-        .nav-dot.active {
-            background-color: #555555;
-            transform: scale(1.2);
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            border-color: #333333;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .badge {
+            background-color: #333333;
+            color: #ffffff;
+        }
+        
+        .btn-primary {
+            background-color: #222222;
+            color: #ffffff;
+        }
+        
+        .btn-primary:hover {
+            background-color: #333333;
         }
     </style>
 </head>
 
-<body class="bg-black text-gray-300">
+<body class="bg-black text-gray-200">
 
-    <!-- Header / Logo -->
-    <header class="bg-gray-900 p-4 shadow-md sticky top-0 z-50 border-b border-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-black py-4 px-6 sticky top-0 z-50 shadow-lg border-b border-gray-900">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-white">Drip King👑</h1>
-            <nav class="hidden md:flex space-x-6">
-                <a href="#home" class="hover:text-black transition duration-300 flex items-center">
-                    <i class="fas fa-home mr-2"></i> Home
-                </a>
-                <a href="#products" class="hover:text-black transition duration-300 flex items-center">
-                    <i class="fas fa-tshirt mr-2"></i> Products
-                </a>
-                <a href="#about" class="hover:text-black transition duration-300 flex items-center">
-                    <i class="fas fa-info-circle mr-2"></i> About
-                </a>
-                <a href="#search" class="hover:text-black transition duration-300 flex items-center">
-                    <i class="fas fa-search mr-2"></i> Search
-                </a>
-            </nav>
-            <button class="md:hidden text-gray-400">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
+            <div class="text-2xl font-bold text-white">DRIP KING</div>
+
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-gray-400 transition">Home</a>
+                <a href="#products" class="hover:text-gray-400 transition">Products</a>
+                <a href="#new" class="hover:text-gray-400 transition">New Arrivals</a>
+                <a href="#contact" class="hover:text-gray-400 transition">Contact</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-gray-400"><i class="fas fa-search"></i></a>
+                <a href="#" class="hover:text-gray-400"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#" class="hover:text-gray-400"><i class="fas fa-user"></i></a>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Navigation Indicator Dots -->
-    <div class="nav-indicator">
-        <a href="#home" class="nav-dot active" data-section="home"></a>
-        <a href="#products" class="nav-dot" data-section="products"></a>
-        <a href="#about" class="nav-dot" data-section="about"></a>
-        <a href="#search" class="nav-dot" data-section="search"></a>
-    </div>
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center">
+        <div class="absolute inset-0 bg-black opacity-80"></div>
+        <img src="https://i.ibb.co/1GfRFfwW/Logo.png" alt="Fashion Banner" class="absolute w-full h-full object-cover">
 
-    <!-- Banner Image -->
-    <section id="home" class="relative overflow-hidden h-screen flex items-center justify-center bg-black">
-        <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-80 z-0"></div>
-        <img src="assets/logo.jpg" alt="Drip King Logo" class="absolute h-full w-full object-cover opacity-70">
-        <div class="relative z-10 text-center px-4">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white">DRIP KING</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white">Where Style Meets Royalty</p>
-            <a href="#products" class="bg-gray-800 hover:bg-gray-700 text-black-200 px-8 py-3 rounded-full font-medium transition duration-300 inline-flex items-center">
-                Explore Collection <i class="fas fa-arrow-down ml-2"></i>
+        <div class="container mx-auto relative z-10 text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Premium Streetwear Collection</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-400">Discover our exclusive fashion pieces</p>
+            <a href="#products" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium inline-flex items-center border border-gray-800">
+                Shop Now <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="py-16 fade-in bg-gray-900">
-        <div class="container mx-auto px-4">
-            <h3 class="text-3xl font-semibold mb-12 text-center text-gray-200">
-                <i class="fas fa-crown mr-3"></i> Our Collection
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section id="products" class="py-16 px-4 bg-black">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center border-b pb-4 border-gray-900 text-white">Bestselling Products</h2>
+
+            <div class="product-grid">
                 <!-- Product 1 -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 group">
-                    <div class="relative overflow-hidden rounded mb-4 h-64">
-                        <img src="https://source.unsplash.com/random/600x600/?fashion,men" alt="Product 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                            <button class="bg-gray-700 hover:bg-gray-600 text-gray-200 px-6 py-2 rounded-full">View Details</button>
-                        </div>
+                <div class="product-card rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1459&q=80" alt="Graphic T-Shirt" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-gray-900 text-white px-3 py-1 rounded-full text-sm border border-gray-700">New</div>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-200">Urban Jacket</h4>
-                    <p class="text-gray-400 mb-3">Trendy streetwear for the modern king</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-300 font-bold">$89.99</span>
-                        <button class="text-gray-400 hover:text-gray-300">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2 text-white">Graphic Print T-Shirt</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300 font-bold">$29.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 group">
-                    <div class="relative overflow-hidden rounded mb-4 h-64">
-                        <img src="https://source.unsplash.com/random/600x600/?fashion,women" alt="Product 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                            <button class="bg-gray-700 hover:bg-gray-600 text-gray-200 px-6 py-2 rounded-full">View Details</button>
-                        </div>
+                <div class="product-card rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" alt="Denim Jacket" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-gray-900 text-white px-3 py-1 rounded-full text-sm border border-gray-700">Sale</div>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-200">Silk Dress</h4>
-                    <p class="text-gray-400 mb-3">Elegance redefined for the queen</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-300 font-bold">$129.99</span>
-                        <button class="text-gray-400 hover:text-gray-300">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2 text-white">Vintage Denim Jacket</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300 font-bold">$59.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 group">
-                    <div class="relative overflow-hidden rounded mb-4 h-64">
-                        <img src="https://source.unsplash.com/random/600x600/?fashion,accessories" alt="Product 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                            <button class="bg-gray-700 hover:bg-gray-600 text-gray-200 px-6 py-2 rounded-full">View Details</button>
+                <div class="product-card rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Cargo Pants" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2 text-white">Urban Cargo Pants</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300 font-bold">$49.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
                         </div>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-200">Royal Accessories</h4>
-                    <p class="text-gray-400 mb-3">Complete your royal look</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-300 font-bold">$49.99</span>
-                        <button class="text-gray-400 hover:text-gray-300">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80" alt="Hoodie" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2 text-white">Oversized Hoodie</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300 font-bold">$39.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sneakers" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-gray-900 text-white px-3 py-1 rounded-full text-sm border border-gray-700">Popular</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2 text-white">High-Top Sneakers</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300 font-bold">$89.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card rounded-lg overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Cap" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2 text-white">Logo Baseball Cap</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300 font-bold">$24.99</span>
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full transition border border-gray-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="py-16 fade-in bg-gray-800">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-3xl font-semibold mb-8 text-gray-200">
-                <i class="fas fa-crown mr-3"></i> About The Kingdom
-            </h3>
-            <div class="max-w-4xl mx-auto">
-                <p class="text-gray-400 mb-6 text-lg leading-relaxed">
-                    At <span class="text-gray-300 font-bold">Drip King</span>, we believe fashion is more than just clothing - it's a statement of royalty. Founded in 2020, we've been curating the finest collections for those who demand excellence in
-                    every stitch.
-                </p>
-                <div class="grid md:grid-cols-3 gap-8 mt-12">
-                    <div class="bg-gray-900 p-6 rounded-lg border border-gray-700">
-                        <i class="fas fa-gem text-4xl text-gray-400 mb-4"></i>
-                        <h4 class="text-xl font-bold mb-2 text-gray-200">Premium Quality</h4>
-                        <p class="text-gray-500">Only the finest materials for our royalty</p>
-                    </div>
-                    <div class="bg-gray-900 p-6 rounded-lg border border-gray-700">
-                        <i class="fas fa-truck text-4xl text-gray-400 mb-4"></i>
-                        <h4 class="text-xl font-bold mb-2 text-gray-200">Fast Delivery</h4>
-                        <p class="text-gray-500">Your royal package arrives swiftly</p>
-                    </div>
-                    <div class="bg-gray-900 p-6 rounded-lg border border-gray-700">
-                        <i class="fas fa-headset text-4xl text-gray-400 mb-4"></i>
-                        <h4 class="text-xl font-bold mb-2 text-gray-200">24/7 Support</h4>
-                        <p class="text-gray-500">Our royal service never sleeps</p>
-                    </div>
+    <!-- Footer -->
+    <footer class="bg-black py-12 px-4 border-t border-gray-900">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-white">DRIP KING</h3>
+                <p class="text-gray-500">Your destination for premium streetwear and fashion.</p>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-500 hover:text-gray-300 transition">Shipping Policy</a></li>
+                    <li><a href="#" class="text-gray-500 hover:text-gray-300 transition">Terms & Conditions</a></li>
+                    <li><a href="#" class="text-gray-500 hover:text-gray-300 transition">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-semibold mb-4 text-white">Contact Us</h4>
+                <ul class="space-y-2 text-gray-500">
+                    <li class="flex items-center"><i class="fas fa-phone mr-2"></i> +1 (123) 456-7890</li>
+                    <li class="flex items-center"><i class="fas fa-envelope mr-2"></i> info@dripking.com</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+                <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#1877F2] hover:text-white transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <!-- Instagram Link -->
+                    <a href="https://www.instagram.com/dripking.eggy/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-gradient-to-tr hover:from-[#833AB4] hover:via-[#C13584] hover:to-[#E1306C] hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@drip.kingg11" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-200 hover:bg-gray-700 transition group">
+                        <i class="fab fa-tiktok group-hover:text-[#FE2C55]"></i>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Search Section -->
-    <section id="search" class="py-16 fade-in bg-gray-900">
-        <div class="container mx-auto px-4">
-            <h3 class="text-3xl font-semibold mb-8 text-center text-gray-200">
-                <i class="fas fa-search mr-3"></i> Find Your Royal Style
-            </h3>
-            <div class="max-w-md mx-auto relative">
-                <input type="text" placeholder="Search for royal attire..." class="w-full p-4 pl-12 bg-gray-800 border border-gray-700 rounded-full text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent">
-                <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
-            </div>
-            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-                <button class="bg-gray-800 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-full transition flex items-center justify-center">
-                    <i class="fas fa-tshirt mr-2"></i> Tops
-                </button>
-                <button class="bg-gray-800 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-full transition flex items-center justify-center">
-                    <i class="fas fa-vest mr-2"></i> Outerwear
-                </button>
-                <button class="bg-gray-800 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-full transition flex items-center justify-center">
-                    <i class="fas fa-shoe-prints mr-2"></i> Footwear
-                </button>
-                <button class="bg-gray-800 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-full transition flex items-center justify-center">
-                    <i class="fas fa-ring mr-2"></i> Accessories
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer with Social Media Icons -->
-    <footer class="bg-gray-900 py-12 border-t border-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h4 class="text-xl font-bold text-white mb-4">Drip King👑</h4>
-                    <p class="text-gray-500">Your royal destination for premium fashion and accessories.</p>
-                </div>
-                <div>
-                    <h5 class="text-lg font-semibold text-white mb-4">Quick Links</h5>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-500 hover:text-gray-300 transition">Home</a></li>
-                        <li><a href="#products" class="text-gray-500 hover:text-gray-300 transition">Products</a></li>
-                        <li><a href="#about" class="text-gray-500 hover:text-gray-300 transition">About Us</a></li>
-                        <li><a href="#search" class="text-gray-500 hover:text-gray-300 transition">Search</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-lg font-semibold text-white mb-4">Contact</h5>
-                    <ul class="space-y-2 text-gray-500">
-                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-gray-400"></i> The Kanady City</li>
-                        <li class="flex items-center"><i class="fas fa-phone mr-2 text-gray-400"></i> +123 456 7890</li>
-                        <li class="flex items-center"><i class="fas fa-envelope mr-2 text-gray-400"></i> royalty@dripking.com</li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-lg font-semibold text-white mb-4">Follow Us</h5>
-                    <div class="flex space-x-4">
-                        <!-- Facebook Link -->
-                        <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#1877F2] hover:text-white transition">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-
-                        <!-- Instagram Link -->
-                        <a href="https://www.instagram.com/dripking.eggy/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-gradient-to-tr hover:from-[#833AB4] hover:via-[#C13584] hover:to-[#E1306C] hover:text-white transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-
-                        </a>
-                        <a href="https://www.tiktok.com/@drip.kingg11" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-200 hover:bg-gray-700 transition group">
-                            <i class="fab fa-tiktok group-hover:text-[#FE2C55]"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-white mt-8 pt-8 text-center text-white">
-                <p>&copy; 2025 Drip King. All rights reserved.</p>
-            </div>
+        <div class="border-t border-gray-900 mt-8 pt-8 text-center text-white">
+            <p>© 2025 DRIP KING. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- jQuery Animations and Scroll Indicator -->
     <script>
-        $(document).ready(function() {
-            // Fade in animation
-            $(".fade-in").hide().fadeIn(1500);
-
-            // Active section detection
-            $(window).scroll(function() {
-                var scrollPosition = $(window).scrollTop();
-
-                $('section').each(function() {
-                    var currentSection = $(this);
-                    var sectionTop = currentSection.offset().top - 100;
-                    var sectionBottom = sectionTop + currentSection.outerHeight();
-
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                        var sectionId = currentSection.attr('id');
-                        $('.nav-dot').removeClass('active');
-                        $(`.nav-dot[data-section="${sectionId}"]`).addClass('active');
-                    }
-                });
-            });
-
-            // Smooth scroll for navigation dots
-            $('.nav-dot').click(function(e) {
-                e.preventDefault();
-                var targetSection = $(this).attr('href');
-                $('html, body').animate({
-                    scrollTop: $(targetSection).offset().top
-                }, 800);
-            });
-
-            // Mobile menu toggle (placeholder)
-            $('header button').click(function() {
-                alert("Mobile menu would open here");
+        // Simple cart functionality
+        document.querySelectorAll('.product-card button').forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.closest('.product-card').querySelector('h3').textContent;
+                const productPrice = button.closest('.product-card').querySelector('span').textContent;
+                alert(`Added to cart: ${productName} - ${productPrice}`);
             });
         });
     </script>
